@@ -1,0 +1,7 @@
+App\Entity\city:
+  paris:
+    name: Paris
+  lyon:
+    name: Lyon
+  marseille:
+    name: Marseille

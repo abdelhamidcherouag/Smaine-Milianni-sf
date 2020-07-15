@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m12">
+                    <h1>Ajout de voiture</h1>
+                    <h3>Model: {{ Car.model }}</h3>
+                    <h3>Prix: {{ Car.price }}</h3>
+
+                    {% if car.image is defined %}
+                    <img src="{{ asset('images') ~ Car.image.name }}" alt="">
+                        {% else %}
+                    <p>Pas d'images</p>
+                    {% endif %}
+
+                    {% for keyword in Car.keywords%}
+                    <p>{{ keyword.name }} {% if not lopp,last %},{% endfor %}</p>
+
+                    {% endif %}
+
+
+                    {% if car.cities |length > 0  %}
+                    <p>Voiture disponible à
+                    {% for city in Car.cities%}
+                        <a href="" class="btn waves-effect waves-light">{{ city.name }}</a>
+                     </p>
+                        {{ city.name }}
+                    {% endfor %}
+                    {% endif %}
+
+                    <a href="{{ path('home') }}">Acceuil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

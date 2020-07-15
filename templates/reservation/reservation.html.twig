@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="container">
+                    <div class="section">
+                        <div class="row">
+                            <div class="col s12 m12">
+                                <h1>Voitures réserver : :</h1>
+                                <h3>Model: {{ Car.model }}</h3>
+                                <h3>Prix: {{ Car.price }}</h3>
+                                <h3>Email: {{ Car.user.email }}</h3>
+
+                                {#{% if Car.image is defined %}#}
+                                    {#<img src="{{ asset('images') ~ Car.image.name }}" alt="">#}
+                                {#{% else %}#}
+                                    {#<p>Pas d'images</p>#}
+                                {#{% endif %}#}
+
+
+                                {% if Car.cities |length > 0  %}
+                                    <p>Voiture disponible à
+                                    {% for city in Car.cities%}
+                                        <a href="" class="btn waves-effect waves-light">{{ city.name }}</a>
+                                        </p>
+                                        {{ city.name }}
+                                    {% endfor %}
+                                {% endif %}
+
+                                <a href="{{ path('home') }}">Acceuil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col m6 offset-m3">
+                    <ul>
+                        {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+
+                        <div class="input-field col s12">
+                            {{ form_label(form.startAt) }}
+                            {{ form_widget(form.startAt) }}
+                            <span style="color: red"><strong>{{ form_errors(form.startAt) }}</strong></span>
+                        </div>
+
+                        <div class="input-field col s12">
+                            {{ form_label(form.endAt) }}
+                            {{ form_widget(form.endAt) }}
+                            <span style="color: red"><strong>{{ form_errors(form.endAt) }}</strong></span>
+                        </div>
+
+                        <button class="btn waves-effect waves-light" style="margin-top: 60px" type="submit" name="action">Ajouter
+                            <i class="material-icons right"></i>
+                        </button>
+                        {{ form_end(form) }}
+                    </ul>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12">
+                <ul>
+                    {% for book in books %}
+
+                        <li><h3><a href="{{ path('show', {'id':book.id}) }}">{{ book.titke }}</a></h3></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

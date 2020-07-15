@@ -1,0 +1,28 @@
+<h1>Bonjour</h1>
+
+{#<p>Veuillez confirmer votre inscription en cliquant sur ce lien <a href="{{ url('token_validation', {token:token}) }}">Ici</a></p>#}
+<p>Voulez-vous louez ce véhicule. <a href="{{ url('token_reservation', {Value:token}) }}" class="waves-effect waves-light btn green">OUi</a>
+    <a href="{{ url('token_reservation', {Value:token}) }}" class="waves-effect waves-light btn darken-1">NON</a>
+
+</p>
+
+
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Vehicule</th>
+        <th>Date de debut</th>
+        <th>Date de fin</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>{{ reservation.userR.Email }}</td>
+        <td>{{ reservation.cars.model }}</td>
+        <td>{{ reservation.startAt.format('d/m/Y') }}</td>
+        <td>{{ reservation.endAt.format('d/m/Y') }}</td>
+    </tr>
+    </tbody>
+</table>

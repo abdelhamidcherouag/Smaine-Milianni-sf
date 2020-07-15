@@ -1,0 +1,22 @@
+<h1>Bonjour</h1>
+
+<h2> Votre véhicule a bien été validé.</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>Vehicule</th>
+        <th>Date de debut</th>
+        <th>Date de fin</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+        <td>{{ reservation.userR.Email }}</td>
+        <td>{{ reservation.cars.model }}</td>
+        <td>{{ reservation.startAt.format('d/m/Y') }}</td>
+        <td>{{ reservation.endAt.format('d/m/Y') }}</td>
+    </tr>
+    </tbody>
+</table>
